@@ -780,7 +780,7 @@ repackwrt() {
     local readonly ULO_REPO="https://github.com/armarchindo/ULO-Builder/archive/refs/heads/main.zip"
     local readonly REQUIRED_SPACE_MB=2048
     local readonly TARGET_BOARD="s905x_s905x-b860h"
-    local readonly TARGET_KERNEL="5.15.y_5.10.y"
+    local readonly TARGET_KERNEL="6.6.y_6.1.y"
 
     # Validate builder type
     if [[ "$builder_type" != "--ophub" && "$builder_type" != "--ulo" ]]; then
@@ -1215,11 +1215,11 @@ case "${op_devices}" in
         # Process B860H with ULO firmware
         build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*-s905x-*.img.gz")" "ULO" "meson-gxl-s905x-b860h.dtb" "B860H_v1-v2"
         # Process HG680P with OPHUB firmware
-        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x_k5.10*.img.gz")" "OPHUB" "meson-gxl-s905x-p212.dtb" "HG680P"
-        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x_k5.15*.img.gz")" "OPHUB" "meson-gxl-s905x-p212.dtb" "HG680P"
+        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x_k6.1*.img.gz")" "OPHUB" "meson-gxl-s905x-p212.dtb" "HG680P"
+        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x_k6.6*.img.gz")" "OPHUB" "meson-gxl-s905x-p212.dtb" "HG680P"
         # Process B860H with OPHUB firmware
-        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x-b860h_k5.10*.img.gz")" "OPHUB" "meson-gxl-s905x-b860h.dtb" "B860H_v1-v2"
-        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x-b860h_k5.15*.img.gz")" "OPHUB" "meson-gxl-s905x-b860h.dtb" "B860H_v1-v2"
+        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x-b860h_k6.1*.img.gz")" "OPHUB" "meson-gxl-s905x-b860h.dtb" "B860H_v1-v2"
+        build_mod_sdcard "$(find "${imagebuilder_path}/out_firmware" -name "*_s905x-b860h_k6.6*.img.gz")" "OPHUB" "meson-gxl-s905x-b860h.dtb" "B860H_v1-v2"
         ;;
     h5-*|h616-*|h618-*|h6-*|s905x[0-9]*|rk*)
         repackwrt --ulo
